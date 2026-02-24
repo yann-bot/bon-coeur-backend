@@ -1,8 +1,12 @@
+import type { BetterAuthOptions, DBAdapter } from "better-auth";
+
 /**
  * Ports (hexagonal): interfaces that the auth core depends on.
  * Outbound adapters (e.g. Drizzle) implement these.
  *
- * Better Auth expects a database adapter with a specific shape;
- * the outbound auth.drizzle module provides it.
+ * This matches the database adapter factory type that Better Auth expects.
+ * The outbound `auth.drizzle` module returns a function of this shape.
  */
-export type AuthDatabaseAdapter = (options: unknown) => unknown;
+export type AuthDatabaseAdapter = (
+  options: BetterAuthOptions,
+) => DBAdapter<BetterAuthOptions>;
