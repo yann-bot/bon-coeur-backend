@@ -31,6 +31,7 @@
     "db:push": "bunx drizzle-kit push",
     "db:studio": "bunx drizzle-kit studio",
     "auth:generate": "bun x @better-auth/cli@latest generate --yes --output src/db/schema.ts",
-    "auth:migrate": "bun x @better-auth/cli@latest migrate"
+    "auth:migrate": "bun x @better-auth/cli@latest migrate",
+    "test": "bun test"
   }
 }

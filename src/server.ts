@@ -2,6 +2,7 @@ import cors from "cors";
 import express, { type Request, type Response } from "express";
 import { AUTH_BASE_PATH, authHandler } from "./modules/auth";
 import { router as usersRouter } from "./modules/users";
+import { router as productsRouter } from "./modules/products";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(AUTH_BASE_PATH, authHandler);
 app.use(express.json());
 
 app.use("/api/users", usersRouter);
+app.use("/api/products", productsRouter);
 
 app.get("/", (_req: Request, res: Response) => {
   res.json({ message: "Bon coeur multiservice API" });
